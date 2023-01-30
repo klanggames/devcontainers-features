@@ -1,0 +1,25 @@
+{
+    "id": "telepresence-connect",
+    "name": "Telepresence Connect",
+    "version": "1.0.0",
+    "description": "Establish connection to tailscale",
+    "options": {
+        "domain": {
+            "type": "string",
+            "description": "Select a cluster domain to connect to"
+        },
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Select Telepresence version to use"
+        },
+        "project": {
+            "type": "string",
+            "description": "Select a google-cloud project id"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/klanggames/devcontainers-features/gcloud-sdk",
+        "ghcr.io/klanggames/devcontainers-features/tailscale-connect"
+    ]
+}

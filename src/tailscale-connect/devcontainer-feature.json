@@ -1,0 +1,15 @@
+{
+    "id": "tailscale-connect",
+    "name": "Tailscale Connect",
+    "version": "1.0.0",
+    "description": "Establish connection to tailscale",
+    "options": {
+        "authkey": {
+            "type": "string",
+            "description": "Select the Tailscale authkey"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/tailscale/codespace/tailscale"
+    ]
+}
