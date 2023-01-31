@@ -1,10 +1,6 @@
 #!/bin/bash
 set -e
 
-set -x
-# setup cli mode for debian
-
-# setup headless ode debian
 export DEBIAN_FRONTEND=noninteractive
 
 latest=415.0.0
@@ -34,6 +30,6 @@ apt update && apt-get install -y --no-install-recommends \
     python3-wheel \
     software-properties-common \
     unzip
-#echo $?
+
 curl -fsSL "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-${CLOUD_SDK_VERSION}-linux-${ARCH}.tar.gz" | tar -C /usr/local -xzf -
 /usr/local/google-cloud-sdk/install.sh -q --usage-reporting=false --rc-path=/etc/bash.bashrc --path-update=true --bash-completion=true

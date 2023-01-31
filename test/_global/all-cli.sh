@@ -20,6 +20,10 @@ echo -e "The result of the 'gcloud --version' command will be:\n"
 gcloud --version
 echo -e "\n"
 
+echo -e "The result of the 'telepresence version' command will be:\n"
+telepresence version
+echo -e "\n"
+
 # Report result
 # If any of the checks above exited with a non-zero exit code, the test will fail.
 reportResults

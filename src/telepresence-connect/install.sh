@@ -6,14 +6,16 @@ DOMAIN_DASHED=$(echo "$DOMAIN" | sed 's/\./-/g')
 
 # install dependencies
 echo "Installing dependencies..."
-apt-get update && apt-get install -y --no-install-recommends \
-    curl &&
-    rm -rf /var/lib/apt/lists/*
+apt update && apt install -y --no-install-recommends \
+    curl
 
 # install telepresence
 echo "Installing telepresence..."
 
-curl -fL "https://app.getambassador.io/download/tel2/linux/amd64/${VERSION}/telepresence" -o /usr/local/bin/telepresence
+if [ $(uname -m) = 'x86_64' ]; then echo -n "x86_64" >/tmp/arch; else echo -n "arm64" >/tmp/arch; fi
+ARCH=$(cat /tmp/arch)
+
+curl -fL "https://app.getambassador.io/download/tel2/linux/${ARCH}/${VERSION}/telepresence" -o /usr/local/bin/telepresence
 chmod a+x /usr/local/bin/telepresence
 
 # auth gcloud first, requires some user input

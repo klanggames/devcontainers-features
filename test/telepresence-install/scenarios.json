@@ -1,12 +1,9 @@
 {
-    "all-cli": {
+    "telepresence-install": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "telepresence-install": {
                 "version": "2.10.4"
-            },
-            "gcloud-sdk": {
-                "version": "415.0.0"
             }
         }
     }
