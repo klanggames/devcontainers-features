@@ -6,6 +6,7 @@
     "options": {
         "domain": {
             "type": "string",
+            "required": true,
             "description": "Select a cluster domain to connect to"
         },
         "version": {
@@ -15,6 +16,7 @@
         },
         "project": {
             "type": "string",
+            "required": true,
             "description": "Select a google-cloud project id"
         }
     },

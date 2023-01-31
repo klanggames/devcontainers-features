@@ -13,6 +13,5 @@
             "default": "415.0.0",
             "description": "Select a google-cloud-sdk version"
         }
-    },
-    "installAfter": "ghcr.io/devcontainers-contrib/features/curl-apt-get"
+    }
 }
