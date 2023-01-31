@@ -1,0 +1,21 @@
+{
+    "id": "nuget-setup",
+    "name": "NuGet Setup",
+    "version": "1.0.0",
+    "description": "Add private nuget source",
+    "options": {
+        "user": {
+            "type": "string",
+            "default": "",
+            "description": "The user"
+        },
+        "password": {
+            "type": "string",
+            "default": "",
+            "description": "The password"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/dotnet"
+    ]
+}

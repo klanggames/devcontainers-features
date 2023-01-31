@@ -1,0 +1,10 @@
+{
+    "tailscale-connect": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "tailscale-connect": {
+                "authkey": "${env:TAILSCALE_AUTHKEY}"
+            }
+        }
+    }
+}

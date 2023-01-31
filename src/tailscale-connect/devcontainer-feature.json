@@ -6,7 +6,7 @@
     "options": {
         "authkey": {
             "type": "string",
-            "required": true,
+            "default": "",
             "description": "Select the Tailscale authkey"
         }
     },

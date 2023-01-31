@@ -6,17 +6,12 @@
     "options": {
         "domain": {
             "type": "string",
-            "required": true,
+            "default": "seed-dev",
             "description": "Select a cluster domain to connect to"
-        },
-        "version": {
-            "type": "string",
-            "default": "latest",
-            "description": "Select Telepresence version to use"
         },
         "project": {
             "type": "string",
-            "required": true,
+            "default": "seed-209211",
             "description": "Select a google-cloud project id"
         }
     },
