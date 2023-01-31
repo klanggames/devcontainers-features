@@ -1,0 +1,13 @@
+{
+    "id": "telepresence-install",
+    "name": "Telepresence Install",
+    "version": "1.0.0",
+    "description": "Install Telepresence to devcontainer",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Select Telepresence version to use"
+        }
+    }
+}
