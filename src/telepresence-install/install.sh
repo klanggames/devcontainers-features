@@ -12,8 +12,10 @@ apt update && apt install -y --no-install-recommends \
 # install telepresence
 echo "Installing telepresence..."
 
-if [ $(uname -m) = 'x86_64' ]; then echo -n "x86_64" >/tmp/arch; else echo -n "arm64" >/tmp/arch; fi
+if [ $(uname -m) = 'x86_64' ]; then echo -n "amdx64" >/tmp/arch; else echo -n "arm64" >/tmp/arch; fi
 ARCH=$(cat /tmp/arch)
 
-curl -fL "https://app.getambassador.io/download/tel2/linux/${ARCH}/${VERSION}/telepresence" -o /usr/local/bin/telepresence
+URL="https://app.getambassador.io/download/tel2/linux/${ARCH}/${VERSION}/telepresence"
+echo "Downloading ${URL}..."
+curl -fL "${URL}" -o /usr/local/bin/telepresence
 chmod a+x /usr/local/bin/telepresence
