@@ -2,6 +2,7 @@
     "telepresence-connect": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
+            "gcloud-sdk": {},
             "telepresence-connect": {}
         }
     }
