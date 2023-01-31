@@ -1,7 +1,7 @@
 {
     "id": "tailscale-connect",
     "name": "Tailscale Connect",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Establish connection to tailscale",
     "options": {
         "authkey": {
