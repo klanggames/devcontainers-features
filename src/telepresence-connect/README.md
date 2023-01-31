@@ -1,7 +1,7 @@
 
 # Telepresence Connect (telepresence-connect)
 
-Establish connection to tailscale
+Establish connection to ambassador service
 
 ## Example Usage
 
@@ -11,12 +11,7 @@ Establish connection to tailscale
 }
 ```
 
-## Options
 
-| Options Id | Description | Type | Default Value |
-|-----|-----|-----|-----|
-| domain | Select a cluster domain to connect to | string | seed-dev |
-| project | Select a google-cloud project id | string | seed-209211 |
 
 
 
