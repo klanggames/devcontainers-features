@@ -1,7 +1,7 @@
 {
     "id": "telepresence-connect",
     "name": "Telepresence Connect",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Establish connection to ambassador service",
     "installsAfter": [
         "ghcr.io/klanggames/devcontainers-features/gcloud-sdk",

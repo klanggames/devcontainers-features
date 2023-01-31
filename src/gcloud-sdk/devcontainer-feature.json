@@ -1,7 +1,7 @@
 {
     "id": "gcloud-sdk",
     "name": "Google Cloud SDK",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Adding Google Cloud SDK to a devcontainer",
     "options": {
         "version": {
