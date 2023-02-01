@@ -1,7 +1,7 @@
 
 # NuGet Setup (nuget-setup)
 
-Add private nuget source
+Adds nuget-setup script to the devcontainer
 
 ## Example Usage
 
@@ -11,12 +11,7 @@ Add private nuget source
 }
 ```
 
-## Options
 
-| Options Id | Description | Type | Default Value |
-|-----|-----|-----|-----|
-| user | The user | string | - |
-| password | The password | string | - |
 
 
 
