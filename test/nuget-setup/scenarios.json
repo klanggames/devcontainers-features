@@ -2,10 +2,7 @@
     "nuget-setup": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
-            "nuget-setup": {
-                "user": "${localEnv:GITHUB_USER}",
-                "password": "${localEnv:GITHUB_TOKEN}"
-            }
+            "nuget-setup": {}
         }
     }
 }
