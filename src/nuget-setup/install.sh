@@ -10,20 +10,20 @@ cat >/usr/local/bin/nuget-setup \
     USER=\$1
     TOKEN=\$2
 
-    if [ -z "\${USER}" ] && [ -n "\${GITHUB_USER}" ]; then
-        USER="\${GITHUB_USER}"
+    if [ -z "\$USER" ] && [ -n "\$GITHUB_USER" ]; then
+        USER="\$GITHUB_USER"
     fi
 
-    if [ -z "\${USER}" ]; then
+    if [ -z "\$USER" ]; then
         echo "Missing argument: user, either specify or set GITHUB_USER environment variable"
         exit 1
     fi
 
-    if [ -z "\${TOKEN}" ] && [ -n "\${GITHUB_TOKEN}" ]; then
-        TOKEN="\${GITHUB_TOKEN}"
+    if [ -z "\$TOKEN" ] && [ -n "\$GITHUB_TOKEN" ]; then
+        TOKEN="\$GITHUB_TOKEN"
     fi
 
-    if [ -z "\${TOKEN}" ]; then
+    if [ -z "\$TOKEN" ]; then
         echo "Missing argument: token, either specify or set GITHUB_TOKEN environment variable"
         exit 1
     fi
@@ -36,9 +36,9 @@ cat >/usr/local/bin/nuget-setup \
     echo "\$CONTENT" >"\$HOME/.upmconfig.toml"
 
     if ! dotnet nuget list source | grep -q 'https://nuget.pkg.github.com/klanggames/index.json'; then
-        dotnet nuget add source --username "\$EMAIL" --password "\$TOKEN" --store-password-in-clear-text --name github "https://nuget.pkg.github.com/klanggames/index.json"
+        dotnet nuget add source --username "\$USER" --password "\$TOKEN" --store-password-in-clear-text --name github "https://nuget.pkg.github.com/klanggames/index.json"
     else
-        dotnet nuget update source github --source https://nuget.pkg.github.com/klanggames/index.json --username "\$EMAIL" --password "\$TOKEN" --store-password-in-clear-text
+        dotnet nuget update source github --source https://nuget.pkg.github.com/klanggames/index.json --username "\$USER" --password "\$TOKEN" --store-password-in-clear-text
     fi
 
 EOF
