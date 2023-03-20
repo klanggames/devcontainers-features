@@ -4,7 +4,8 @@ set -e
 # install dependencies
 echo "Installing dependencies..."
 apt update && apt install -y --no-install-recommends \
-    curl
+    curl \
+    dnsutils
 
 # install telepresence
 echo "Installing telepresence..."
