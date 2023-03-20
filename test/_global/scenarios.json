@@ -7,8 +7,7 @@
             },
             "gcloud-sdk": {
                 "version": "415.0.0"
-            },
-            "connect-telepresence": {}
+            }
         }
     }
 }

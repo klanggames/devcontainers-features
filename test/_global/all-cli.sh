@@ -25,7 +25,7 @@ telepresence version
 echo -e "\n"
 
 echo -e "The result of the 'connect-telepresence' command will be:\n"
-connect-telepresence --domain seed-dev --project seed-209211 --namespace sharedsvc
+connect-telepresence --domain seed.dev --project seed-209211 --namespace sharedsvc
 echo -e "\n"
 
 # Report result
