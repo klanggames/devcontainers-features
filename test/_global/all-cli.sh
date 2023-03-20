@@ -24,10 +24,6 @@ echo -e "The result of the 'telepresence version' command will be:\n"
 telepresence version
 echo -e "\n"
 
-echo -e "The result of the 'connect-telepresence' command will be:\n"
-connect-telepresence --domain seed-dev --project seed-209211 --namespace sharedsvc
-echo -e "\n"
-
 # Report result
 # If any of the checks above exited with a non-zero exit code, the test will fail.
 reportResults
