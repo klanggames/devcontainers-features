@@ -103,3 +103,48 @@ cat >/usr/local/bin/connect-telepresence \
 EOF
 
 chmod +x /usr/local/bin/connect-telepresence
+
+cat >/usr/local/bin/get-env \
+    <<EOF
+    #!/bin/bash
+
+    set -- $(getopt -n "\$0" -o n:w: --long namespace:,workload: -- \$@)
+
+    # extract options and their arguments into variables.
+    while true ; do
+        case "\$1" in
+            -n|--namespace) namespace=\$2 ; shift 2 ;;
+            -w|--workload) workload=\$2 ; shift 2 ;;
+            --) shift ; break ;;
+            *) echo "Internal error!" ; exit 1 ;;
+        esac
+    done
+
+    # trim arguments
+    workload=\$(echo \$workload | tr -d "'" | tr -d '"')
+    namespace=\$(echo \$namespace | tr -d "'" | tr -d '"')
+
+    # check if namespace and workload are set
+    if [ -z "\$workload" ] || [ -z "\$namespace" ]
+    then
+        echo "Usage: source \$0 -n <namespace> -w <workload>"
+        exit 1
+    fi
+
+    # get pod from workload name and namesapce
+    pod=$(kubectl get pods -n \$namespace -l app=\$workload -o jsonpath='{.items[0].metadata.name}')
+    env=$(kubectl -n \$namespace exec \$pod -- printenv | grep -v "HOME" | grep -v "PATH")
+
+    envarray=(\$env)
+
+    echo exporting environment variables from \$workload in \$namespace:
+
+    # export each environment variable
+    for line in "\${envarray[@]}"; do
+        echo \$line
+        export \$line
+    done
+
+EOF
+
+chmod +x /usr/local/bin/get-env
