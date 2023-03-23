@@ -108,7 +108,7 @@ cat >/usr/local/bin/get-env \
     <<EOF
     #!/bin/bash
 
-    set -- $(getopt -n "\$0" -o n:w: --long namespace:,workload: -- \$@)
+    set -- \$(getopt -n "\$0" -o n:w: --long namespace:,workload: -- \$@)
 
     # extract options and their arguments into variables.
     while true ; do
@@ -132,8 +132,8 @@ cat >/usr/local/bin/get-env \
     fi
 
     # get pod from workload name and namesapce
-    pod=$(kubectl get pods -n \$namespace -l app=\$workload -o jsonpath='{.items[0].metadata.name}')
-    env=$(kubectl -n \$namespace exec \$pod -- printenv | grep -v "HOME" | grep -v "PATH")
+    pod=\$(kubectl get pods -n \$namespace -l app=\$workload -o jsonpath='{.items[0].metadata.name}')
+    env=\$(kubectl -n \$namespace exec \$pod -- printenv | grep -v "HOME" | grep -v "PATH")
 
     envarray=(\$env)
 
