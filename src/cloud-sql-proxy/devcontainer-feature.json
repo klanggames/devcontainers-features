@@ -1,0 +1,17 @@
+{
+    "id": "cloud-sql-proxy",
+    "name": "Cloud SQL Proxy",
+    "version": "1.0.0",
+    "description": "Adding Google Cloud SQL Proxy to a devcontainer",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest",
+                "2.3.0"
+            ],
+            "default": "2.3.0",
+            "description": "Select a cloud-sql-proxy version"
+        }
+    }
+}
