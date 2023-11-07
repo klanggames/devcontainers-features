@@ -26,16 +26,16 @@ cat >/usr/local/bin/connect-telepresence \
     set -e
 
     # arguments that are:
-    # --domain (required)
-    # --project (defaults to "seed-209211" if not set)
+    # --cluster (defaults to "klang-seed-game-dev-game" if not set)
+    # --project (defaults to "klang-seed-game-dev" if not set)
 
     # parse arguments
     while [[ \$# -gt 0 ]]
     do
         key="\$1"
         case \$key in
-            --domain)
-                DOMAIN="\$2"
+            --cluster)
+                CLUSTER="\$2"
                 shift
                 shift
                 ;;
@@ -52,18 +52,14 @@ cat >/usr/local/bin/connect-telepresence \
     done
 
     # check arguments
-    if [ -z "\$DOMAIN" ]; then
-        echo "Missing argument: --domain"
-        exit 1
+    if [ -z "\$CLUSTER" ]; then
+        CLUSTER="klang-seed-game-dev-game"
     fi
 
     # set defaults
     if [ -z "\$PROJECT" ]; then
-        PROJECT="seed-209211"
+        PROJECT="klang-seed-game-dev"
     fi
-
-    # replace "." in domain with "-"
-    DOMAIN_DASHED=\$(echo "\$DOMAIN" | sed 's/\./-/g')
 
     # auth gcloud first, requires some user input
     echo "Authenticating gcloud..."
@@ -80,15 +76,15 @@ cat >/usr/local/bin/connect-telepresence \
     fi
 
     echo "Finding the zone of the cluster..."
-    ZONE=\$(gcloud container clusters list --format json --project \$PROJECT | jq -r ".[] | select(.name == \"\$DOMAIN_DASHED\") | .zone")
+    ZONE=\$(gcloud container clusters list --format json --project \$PROJECT | jq -r ".[] | select(.name == \"\$CLUSTER\") | .zone")
     if [ -z "\$ZONE" ]; then
         echo "Could not find the zone of the cluster. Please check if the cluster exists."
         exit 1
     fi
 
-    echo "Found zone for \$DOMAIN_DASHED: \$ZONE"
+    echo "Found zone for \$CLUSTER: \$ZONE"
 
-    gcloud container clusters get-credentials \$DOMAIN_DASHED --zone \$ZONE --project \$PROJECT --internal-ip
+    gcloud container clusters get-credentials \$CLUSTER --zone \$ZONE --project \$PROJECT --internal-ip
 
     # test if we get a response from the cluster
     echo "Testing if we can connect to the cluster..."
