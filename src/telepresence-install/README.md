@@ -7,7 +7,7 @@ Install Telepresence to devcontainer
 
 ```json
 "features": {
-    "ghcr.io/klanggames/devcontainers-features/telepresence-install:1": {}
+    "ghcr.io/klanggames/devcontainers-features/telepresence-install:2": {}
 }
 ```
 
